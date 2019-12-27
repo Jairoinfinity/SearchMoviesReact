@@ -16,7 +16,7 @@ export default class SearchForm extends Component {
         fetch(`${API_KEY}s=${inputMovie}`)
         .then(res => res.json())
         .then(data => {
-            const {Search, totalResults} = data;
+            const {Search = [], totalResults = "0"} = data;
             this.props.onResult(Search);       
         })
     }
