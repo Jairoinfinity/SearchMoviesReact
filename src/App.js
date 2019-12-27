@@ -1,7 +1,13 @@
+//Componentes
 import React, {Component} from 'react';
 import {Title} from './components/title';
 import SearchForm from './components/SearchForm';
 import MoviesList from './components/MoviesList';
+
+//Paginas
+import Details from './pages/Details';
+
+//Hojas de estilo
 import './App.css';
 import 'bulma/css/bulma.css';
 
@@ -18,6 +24,13 @@ class App extends Component {
   }
   
   render(){
+    const url = new URL(document.location);
+    const hasId = url.searchParams.has('id');
+
+    if(hasId){
+      return <Details id={url.searchParams.get('id')}></Details>
+    }
+
     return (
       <div className="App">
         <Title>Search Movies</Title>
