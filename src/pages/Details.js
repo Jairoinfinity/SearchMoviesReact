@@ -5,7 +5,12 @@ const API_KEY = 'http://www.omdbapi.com/?apikey=cfc5333b&';
 
 export default class Details extends Component {
     static propTypes = {
-        id: PropTypes.string
+        match: PropTypes.shape({
+            params: PropTypes.object,
+            isExact: PropTypes.bool,
+            path: PropTypes.string,
+            url: PropTypes.string
+        })
     }
 
     state = { movie: {} };
@@ -19,7 +24,7 @@ export default class Details extends Component {
     }
 
     componentDidMount() {
-        const { id } = this.props;
+        const { id } = this.props.match.params;
         this._fetchMovie(id);
     }
 
