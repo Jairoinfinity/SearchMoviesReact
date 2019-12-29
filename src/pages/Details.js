@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ButtonBackToHome } from '../components/ButtonBackToHome';
 
 const API_KEY = 'http://www.omdbapi.com/?apikey=cfc5333b&';
 
@@ -37,7 +38,7 @@ export default class Details extends Component {
 
         return (
             <div>
-                <button onClick={this._goBack}>Volver</button>
+                <ButtonBackToHome></ButtonBackToHome>
                 <h1>{Title}</h1>
                 <img src={Poster}></img>
                 <h3>{Actors}</h3>
